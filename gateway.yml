@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user
+          uri: lb://service-user
+          predicates:
+            - Path=/users/**
+        - id: product
+          uri: lb://service-product
+          predicates:
+            - Path=/products/**
+        - id: order
+          uri: lb://service-order
+          predicates:
+            - Path=/orders/**
+      default-filters:
+        - name: Retry
+          args:
+            retries: 2
+            statuses:
+              - BAD_GATEWAY
+              - SERVICE_UNAVAILABLE
+              - GATEWAY_TIMEOUT
