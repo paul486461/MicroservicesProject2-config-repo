@@ -1,0 +1,28 @@
+# === 全部微服務共用的設定 ===
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka   # Docker: http://eureka-server:8761/eureka
+  instance:
+    prefer-ip-address: true
+
+spring:
+  rabbitmq:
+    host: localhost        # Docker: rabbitmq
+    port: 5672
+    username: root
+    password: root
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+    org.springframework.web: INFO
