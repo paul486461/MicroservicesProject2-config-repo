@@ -6,12 +6,12 @@ eureka:
   instance:
     prefer-ip-address: true
 
-spring:
-  rabbitmq:
-    host: localhost        # Docker: rabbitmq
-    port: 5672
-    username: root
-    password: root
+#spring:
+  #rabbitmq:
+   #host: localhost        # Docker: rabbitmq
+    #port: 5672
+    #username: root
+    #password: root
 
 management:
   endpoints:
