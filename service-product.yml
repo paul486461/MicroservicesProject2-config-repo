@@ -18,7 +18,7 @@ spring:
         format_sql: true
         jdbc:
           time_zone: Asia/Taipei
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    
 
 # 若有用 @Bean 宣告 Queue/Exchange，也可把名稱放在這裡集中管理
 app:
