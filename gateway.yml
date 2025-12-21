@@ -8,24 +8,16 @@ spring:
     gateway:
       routes:
         - id: user
-          uri: lb://service-user
+          uri: http://service-user:8081
           predicates:
             - Path=/users/**
         - id: product
-          uri: lb://service-product
+          uri: http://service-product:8082
           predicates:
             - Path=/products/**
           filters:
             - StripPrefix=1
         - id: order
-          uri: lb://service-order
+          uri: http://service-order:8083
           predicates:
             - Path=/orders/**
-      default-filters:
-        - name: Retry
-          args:
-            retries: 2
-            statuses:
-              - BAD_GATEWAY
-              - SERVICE_UNAVAILABLE
-              - GATEWAY_TIMEOUT
