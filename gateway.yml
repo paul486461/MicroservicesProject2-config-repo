@@ -6,13 +6,6 @@ spring:
     name: gateway
   cloud:
     gateway:
-      routes:
-        - id: product
-          uri: http://service-product:8082
-          predicates:
-            - Path=/products/**
-          filters:
-            - StripPrefix=1
       default-filters:
         - name: Retry
           args:
