@@ -4,11 +4,6 @@ server:
 spring:
   application:
     name: service-product
-  datasource:
-    url: jdbc:mysql://host.docker.internal:3306/db_spzx?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
-    username: spzx
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: none
@@ -18,9 +13,7 @@ spring:
         format_sql: true
         jdbc:
           time_zone: Asia/Taipei
-    
 
-# 若有用 @Bean 宣告 Queue/Exchange，也可把名稱放在這裡集中管理
 app:
   mq:
     exchange: orders.x
