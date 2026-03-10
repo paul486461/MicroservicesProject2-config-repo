@@ -21,3 +21,11 @@ spring:
           uri: http://service-order:8083
           predicates:
             - Path=/orders/**
+      default-filters:
+        - name: Retry
+          args:
+            retries: 2
+            statuses:
+              - BAD_GATEWAY
+              - SERVICE_UNAVAILABLE
+              - GATEWAY_TIMEOUT
