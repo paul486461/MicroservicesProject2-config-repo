@@ -4,3 +4,7 @@ spring:
     username: spzx
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+management:
+  health:
+    redis:
+      enabled: false
