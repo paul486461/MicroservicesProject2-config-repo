@@ -1,10 +1,12 @@
 spring:
   cloud:
     gateway:
-      routes:
-        - id: product
-          uri: http://service-product:8082
-          predicates:
-            - Path=/products/**
-          filters:
-            - StripPrefix=1
+      server:
+        webflux:
+          routes:
+            - id: product
+              uri: http://service-product:8082
+              predicates:
+                - Path=/products/**
+              filters:
+                - StripPrefix=1
